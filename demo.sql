@@ -1,5 +1,6 @@
 drop table if exists rising.myv_sync_query;
 create table rising.myv_sync_query as (
+#making a change 
 with comp as ( 
 select 
 vanid
@@ -17,7 +18,7 @@ vanid
 , statecode
 from (
 	select *
-		, row_number() over (partition by vanid, surveyquestionname order by datecanvassed desc) as row
+
 	from (
 		select *
 		from van.tsm_nextgen_contactssurveyresponses_vf csr
